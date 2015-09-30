@@ -27,7 +27,7 @@
 	<h2>How strToColor works</h2>
 	We take any string, for example: <input type="text" ng-model="teststring" placeholder="Type something here..."><br>
 	The crc32 of the string above is {{ teststring | helper_showcrc }} in hex.	
-	You can <a href="https://www.tools4noobs.com/online_php_functions/crc32/" target="_blank">verify</a> this with <a href="https://google.com/search?q=crc32+online" target="_blank">any</a> <a href="http://www.fileformat.info/tool/hash.htm" target="_blank">online</a> service.<br>
+	You can <a href="https://www.tools4noobs.com/online_php_functions/crc32/" target="_blank">verify</a> this with <a href="https://google.com/search?q=crc32+online" target="_blank">any</a> <a href="http://www.fileformat.info/tool/hash.htm?text={{ teststring }}" target="_blank">online</a> service.<br>
 
 	We then substring the first 6 digits and use that as a hex color code:
 	<table>
