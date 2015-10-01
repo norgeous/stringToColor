@@ -1,6 +1,6 @@
 # stringToColor
-Convert an arbitrary string to a color, via use of CRC32
+Javascript for converting a string to a color, via CRC32 hash
 
 # Demo
-<a href="https://cdn.rawgit.com/norgeous/stringToColor/master/demo/index.html">here</a>
+<a href="https://cdn.rawgit.com/norgeous/stringToColor/master/demo/index.html">demo</a>
 
