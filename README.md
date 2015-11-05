@@ -39,6 +39,7 @@ export class MyClass {
 ```
 ## Demo
 demo: https://rawgit.com/norgeous/stringToColor/master/demo1/index-sfx.html
+
 doc: https://github.com/norgeous/stringToColor/tree/master/demo1
 
 ### Coming soon
