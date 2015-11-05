@@ -12,7 +12,7 @@ export class stringToColor {
 		}, config);
 
 		// create empty cache
-		this.brehautColorObjectCache = {};
+		this.objectCache = {};
 		
 		// instantiate class that mints crcs (only one instance required)
 		this.crc = new crc32hex({useCache: true});
@@ -37,13 +37,14 @@ export class stringToColor {
 		str = str.toString();
 
 		// setup unique key for this operation to be used in cache dictionary
-		let cache_key = str+':'+JSON.stringify(this.options);
+		let cache_key = str+':'+JSON.stringify(options).replace(/[\[\]\"{}:,]/g,"");
 
 		// check str with this config already cached
-		if(this.brehautColorObjectCache[cache_key] !== undefined) {
+		if(this.objectCache[cache_key] !== undefined) {
 
 			// recall from cache
-			return this.brehautColorObjectCache[cache_key]
+			this.objectCache[cache_key].config.fromCache = true;
+			return this.objectCache[cache_key];
 
 		} else {
 
@@ -59,11 +60,6 @@ export class stringToColor {
 			// generate color model from substring of crc
 			let brehautColorObject = new Color('#'+hashSlice);
 
-			// add some additional configuration properties into the object for debugging purposes
-			brehautColorObject.crc = crc;
-			brehautColorObject.mode = options.mode;
-			brehautColorObject.modeMask = this.modeMask[options.mode];
-
 			// apply brehaut transforms
 			if(options.transform !== undefined){
 				for(let transform of options.transform){
@@ -73,9 +69,18 @@ export class stringToColor {
 				}
 			}
 
+			// add some additional configuration properties into the object for debugging purposes
+			brehautColorObject.config = {
+				crc: crc,
+				mode: options.mode,
+				modeMask: this.modeMask[options.mode],
+				cachingOn: options.useCache,
+				fromCache: false
+			};
+
 			// cache result
 			if (options.useCache === true) {
-				this.brehautColorObjectCache[cache_key] = brehautColorObject;
+				this.objectCache[cache_key] = brehautColorObject;
 			}
 			
 			// return brehaut color object
