@@ -51,8 +51,9 @@ export class stringToColor {
 			let crc = this.crc.str(str);
 			
 			// substring 6 of the 8 digits, by removing 2
+			let mm = this.modeMask[options.mode];
 			let hashSlice = crc.split('').map(function(e,i){
-				return ( this.modeMask[options.mode][i]==='1' ? e : '' );
+				return ( mm[i]==='1' ? e : '' );
 			}).join('');
 
 			// generate color model from substring of crc
