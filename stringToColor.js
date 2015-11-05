@@ -31,7 +31,7 @@ export class stringToColor {
 		let options = Object.assign({}, this.options, config);
 
 		// validate options.mode
-		if(isNaN(parseInt(options.mode)) || !isFinite(options.mode) || options.mode >= this.modemasks.length || options.mode < 0) options.mode = 0;			// mode can be 0 to 27
+		if(isNaN(parseInt(options.mode)) || !isFinite(options.mode) || options.mode >= this.modeMask.length || options.mode < 0) options.mode = 0;			// mode can be 0 to 27
 		
 		// force string
 		str = str.toString();
