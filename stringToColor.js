@@ -1,7 +1,7 @@
 import { Color } from 'brehaut/color-js/color';
 import { crc32hex } from 'norgeous/crc32hex';
 
-export class strToColor {
+export class stringToColor {
 		
 	constructor(config = {}) {
 
@@ -14,7 +14,7 @@ export class strToColor {
 		// create empty cache
 		this.brehautColorObjectCache = {};
 		
-		// instantiate class that mints crcs (only one instance required) 
+		// instantiate class that mints crcs (only one instance required)
 		this.crc = new crc32hex({useCache: true});
 		
 		// unpack modemask number to bit flipped binary form
