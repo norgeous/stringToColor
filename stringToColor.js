@@ -15,7 +15,7 @@ export class stringToColor {
 		this.objectCache = {};
 		
 		// instantiate class that mints crcs (only one instance required)
-		this.crc = new crc32hex({useCache: true});
+		this.crc = new crc32hex();
 		
 		// unpack modemask number to bit flipped binary form
 		this.modeMask = [];
