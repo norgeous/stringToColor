@@ -1,0 +1,13 @@
+#environment
+npm install -g jspm
+npm install -g jspm-server
+npm ls -g --depth=0
+
+#project
+jspm install
+
+#dev
+jspm-server
+
+#sfx
+jspm bundle-sfx lib/main build-sfx.js --minify

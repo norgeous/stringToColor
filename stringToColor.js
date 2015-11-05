@@ -1,7 +1,7 @@
 import { Color } from 'brehaut/color-js/color';
 import { crc32hex } from 'norgeous/crc32hex';
 
-export class stringToColor {
+export default class stringToColor {
 		
 	constructor(config = {}) {
 
